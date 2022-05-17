@@ -104,24 +104,33 @@ main > .sidebar  {
     top: 64px; 
     display: flex;
     flex-direction: column;
-    margin-left: 18px; 
-    margin-top: 5px;
     color: #5f6368;  
-    width: 60px;
+    width: 80px; 
     overflow-x: hidden;
+    transition: 0.8s; 
+    height: 100%; 
 }    
+
+main > .sidebar-hover{
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    background-color: white;
+}
+ 
+
   
 main > .sidebar > .sidebar-item {
-    padding: 3px; 
+    padding: 3px 0; 
     display: flex;
-    align-items: center; 
+    align-items: center;
+    cursor: pointer;
+    white-space: nowrap;    
 }
   
 main > .sidebar > .sidebar-item > .active {
     background-color: #fef0c3;
     border-radius: 50%;
     color: black;
-} 
+}  
 
 main > .sidebar > .sidebar-item >.active:hover {
    background-color: #fef0c3; 
@@ -134,10 +143,32 @@ main > .sidebar > .sidebar-item > .sidebar-text {
     width: 250px;
 }   
 
+.sidebar-item .material-icons-outlined {
+    margin-left: 18px;
+} 
+
 main > .sidebar > .sidebar-item:nth-child(1) {
     margin-top: 5px;
 }  
+
+.sidebar-item:hover {
+    background-color: #f1f3f4;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;  
+}
+
+.sidebar-active-item {
+    background-color: #fef0c3;  
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;  
+}
+
+.sidebar-active-item:hover { 
+    background-color: #fef0c3;  
+}
  
+
+  
 /* FORM-CONTAINER */
 
 main > .form-container {
@@ -148,7 +179,7 @@ main > .form-container {
     border: 1px solid #e0e1e0;
     border-radius: 8px; 
 }    
-  
+   
 main > .form-container > form {
     display: flex;
     justify-content: space-between; 
@@ -159,6 +190,7 @@ main > .form-container > form {
 
 main > .form-container > form > .note-title {
     border: none;
+    outline: none;
     font-size: 1rem;
     height: 100%;
     padding: 10px; 
@@ -170,6 +202,7 @@ main > .form-container > form > .note-title {
    
 main > .form-container > form > .note-text {
     border: none;
+    outline: none;  
     font-size: 1rem;
     height: 100%;
     padding: 10px; 
@@ -182,29 +215,31 @@ main > .form-container > form > .note-text {
 main > .form-container > form > .form-actions {
     display: flex; 
 }
-
+ 
 /* SECONDARY FORM CONTAINER */
-/* .active-form {}  */
+.active-form {
+    display: none;  
+}  
 
-.active-form > form{ 
+.active-form > .form{ 
     display: flex;  
     flex-direction: column; 
     width: 100%;
     padding: 10px; 
 }  
 
-.active-form > form > .form-actions > .icons{ 
+.active-form > .form > .form-actions > .icons{ 
     display: flex; 
 }   
   
-.active-form > form > .form-actions{ 
+.active-form > .form > .form-actions{ 
     display: flex;
     justify-content: space-between; 
     width: 100%;  
     margin-top: 5px; 
 }    
 
-.active-form > form > .form-actions > .close-btn {
+.active-form > .form > .form-actions > .close-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -214,28 +249,36 @@ main > .form-container > form > .form-actions {
 .small-icon {
     color: black;
     font-size: 1.1rem;
-}  
+}    
 
 /* NOTES FORM */
 
 main > .notes {
     display: flex;
     justify-content: center; 
-}
-
+    flex-wrap: wrap;
+    padding: 0 50px;
+}    
+ 
 main > .notes > .note {
     background-color: white; 
     width: 240px; 
     margin: 10px; 
     border: 1px solid #e0e1e0;
     border-radius: 8px;
-    position: relative;  
+    position: relative; 
+    cursor: pointer; 
 }    
 
+main > .notes > .note:hover {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); 
+}
+ 
 main > .notes > .note > .check-circle{
     position: absolute;
     left: -12px; 
     top: -10px; 
+    visibility: hidden; 
 }    
 
 main > .notes > .note > .title {
@@ -263,27 +306,27 @@ main > .notes > .note > .note-footer > .icons > .tooltip > .material-icons-outli
 
 /* MODAL CONTENT */
 
-main > .modal {
- position: fixed;
-  top: 0;
-  left: 0;
-  background: rgb(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%; 
-  visibility: hidden; 
-}   
-
-main > .modal > .modal-content {
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+  }
+  
+  .modal-content {
     width: 589px;
     position: relative;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%) 
-}  
-
-.open-modal {
-    visibility: visible; 
-}
+    transform: translate(-50%, -50%);
+  }
+  
+  .open-modal {
+    visibility: visible;
+  } 
 
  
    
