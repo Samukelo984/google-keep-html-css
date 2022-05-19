@@ -123,7 +123,7 @@ class Note {
       const newNote = new Note(cuid(), title, text);
       this.notes = [...this.notes, newNote];
       this.render();  
-        } 
+        }  
     }   
   
     editNote(id, { title, text }) {
